@@ -39,6 +39,7 @@ public class UserServiceImpl implements UserService {
 		user.setAbout(userDto.getAbout());
 		User updatedUser = this.userRepo.save(user);
 		UserDto userDtol = this.userToDto(updatedUser);
+		
 		return userDtol;
 	}
 
