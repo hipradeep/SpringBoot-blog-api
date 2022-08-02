@@ -1,14 +1,9 @@
 package com.hipradeep.blog.services;
 
 import com.hipradeep.blog.payloads.PostDto;
+import com.hipradeep.blog.payloads.PostResponse;
 
 import java.util.List;
-
-import org.springframework.stereotype.Service;
-
-import com.hipradeep.blog.entities.Post;
-
-
 
 public interface PostService {
 	// create
@@ -21,10 +16,10 @@ public interface PostService {
 	void deletePost(Integer postId);
 
 	// get all posts
-	List<PostDto> getAllPost();
+	PostResponse getAllPost(Integer pageNumber, Integer pageSize, String sortBy, String sortDir);
 
-	// get single post 
-	PostDto	getPostById(Integer postId);
+	// get single post
+	PostDto getPostById(Integer postId);
 
 	// get all posts by category
 	List<PostDto> getPostsByCategory(Integer categoryId);
