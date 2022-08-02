@@ -2,6 +2,8 @@ package com.hipradeep.blog.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +30,7 @@ public class UserController {
 
 	// POST-create user
 	@PostMapping("/")
-	public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+	public ResponseEntity<UserDto> createUser(@Valid  @RequestBody UserDto userDto) {
 
 		UserDto createUserDto = this.userService.createUser(userDto);
 		return new ResponseEntity<>(createUserDto, HttpStatus.CREATED);
@@ -36,7 +38,7 @@ public class UserController {
 	// PUT- update user
 
 	@PutMapping("/{userId}")
-	public ResponseEntity<UserDto> upadateUser(@RequestBody UserDto userDto, @PathVariable("userId") int uid) {
+	public ResponseEntity<UserDto> upadateUser(@Valid @RequestBody UserDto userDto, @PathVariable("userId") int uid) {
 		UserDto updateUser = this.userService.updateUser(userDto, uid);
 		return ResponseEntity.ok(updateUser);
 	}
