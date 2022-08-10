@@ -1,10 +1,13 @@
 package com.hipradeep.blog.payloads;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.validation.constraints.NotBlank;
 
 import com.hipradeep.blog.entities.Category;
+import com.hipradeep.blog.entities.Comment;
 import com.hipradeep.blog.entities.User;
 
 import lombok.Getter;
@@ -27,4 +30,6 @@ public class PostDto {
 	private CategoryDto category;
 	@NotBlank
 	private UserDto user;
+	
+	private Set<CommentDto> comments =new HashSet<>();
 }
